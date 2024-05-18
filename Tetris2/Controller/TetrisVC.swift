@@ -340,6 +340,13 @@ class TetrisVC: UIViewController {
         isStopped = false
         scoreCount = 0
         scoreLbl.text = "0"
+        //TODO: -  levelni easy qilish
+        timer.invalidate()
+        timer = nil
+        timer = Timer.scheduledTimer(timeInterval: 0.75, target: self, selector: #selector(timerAction(_:)), userInfo: nil, repeats: true)
+        lvlLbl.text = "Easy"
+        lvlLbl.textColor = .green
+        
         createNextBrick()
         for _ in 0...19 {
             fullLineCordinates.append(0)
